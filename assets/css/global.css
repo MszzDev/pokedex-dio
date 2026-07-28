@@ -27,6 +27,30 @@ body {
 h1 {
   margin: 0;
   padding: 0 0 1rem 0;
+  text-align: center;
+}
+
+/* ÁREA DE PESQUISA */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  padding: 0 0.5rem;
+}
+
+#searchInput {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+  border-color: #6c79db;
 }
 
 /* Lista de Pokémons */
@@ -56,27 +80,40 @@ h1 {
   }
 }
 
-/* Card do Pokémon */
+/* Card do Pokémon Modificado (Fundo branco, borda colorida) */
 .pokemon {
   display: flex;
   flex-direction: column;
   margin: 0.5rem;
   padding: 1rem;
   border-radius: 1rem;
-  color: #fff;
+  background-color: #fff;
+  color: #333;
+  border: 2px solid transparent;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.pokemon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .pokemon .number {
-  color: #000;
-  opacity: 0.3;
+  color: #333;
+  opacity: 0.5;
   text-align: right;
   font-size: 0.625rem;
+  font-weight: bold;
 }
 
 .pokemon .name {
   text-transform: capitalize;
-  color: #fff;
+  color: #333;
   margin-bottom: 0.25rem;
+  font-weight: 700;
 }
 
 .pokemon .detail {
@@ -94,73 +131,17 @@ h1 {
 
 .pokemon .detail .types .type {
   color: #fff;
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 0.75rem;
   margin: 0.25rem 0;
   font-size: 0.625rem;
   border-radius: 1rem;
-  filter: brightness(1.1);
   text-align: center;
+  font-weight: 500;
 }
 
 .pokemon .detail img {
   max-width: 100%;
   height: 70px;
-}
-
-/* Cores por Tipo */
-.normal {
-  background-color: #a6a877;
-}
-.grass {
-  background-color: #77c850;
-}
-.fire {
-  background-color: #ee7f30;
-}
-.water {
-  background-color: #678fee;
-}
-.electric {
-  background-color: #f7d02c;
-}
-.ice {
-  background-color: #98d5d7;
-}
-.ground {
-  background-color: #dfbf6e;
-}
-.flying {
-  background-color: #a98ff0;
-}
-.poison {
-  background-color: #a040a0;
-}
-.fighting {
-  background-color: #bf3028;
-}
-.psychic {
-  background-color: #f85888;
-}
-.dark {
-  background-color: #705848;
-}
-.rock {
-  background-color: #b8a038;
-}
-.bug {
-  background-color: #a8b820;
-}
-.ghost {
-  background-color: #70559b;
-}
-.steel {
-  background-color: #b8b8d0;
-}
-.dragon {
-  background-color: #7038f8;
-}
-.fairy {
-  background-color: #f0b6bc;
 }
 
 /* Botão de Paginação */
@@ -187,4 +168,116 @@ h1 {
 
 .pagination button:hover {
   background-color: #5562c1;
+}
+
+/* Cores por Tipo - Aplicadas na borda e nos badges */
+.normal {
+  border-color: #a6a877;
+}
+.grass {
+  border-color: #77c850;
+}
+.fire {
+  border-color: #ee7f30;
+}
+.water {
+  border-color: #678fee;
+}
+.electric {
+  border-color: #f7d02c;
+}
+.ice {
+  border-color: #98d5d7;
+}
+.ground {
+  border-color: #dfbf6e;
+}
+.flying {
+  border-color: #a98ff0;
+}
+.poison {
+  border-color: #a040a0;
+}
+.fighting {
+  border-color: #bf3028;
+}
+.psychic {
+  border-color: #f85888;
+}
+.dark {
+  border-color: #705848;
+}
+.rock {
+  border-color: #b8a038;
+}
+.bug {
+  border-color: #a8b820;
+}
+.ghost {
+  border-color: #70559b;
+}
+.steel {
+  border-color: #b8b8d0;
+}
+.dragon {
+  border-color: #7038f8;
+}
+.fairy {
+  border-color: #f0b6bc;
+}
+
+/* Para manter o badge interno com a cor sólida */
+.pokemon.normal .type {
+  background-color: #a6a877;
+}
+.pokemon.grass .type {
+  background-color: #77c850;
+}
+.pokemon.fire .type {
+  background-color: #ee7f30;
+}
+.pokemon.water .type {
+  background-color: #678fee;
+}
+.pokemon.electric .type {
+  background-color: #f7d02c;
+}
+.pokemon.ice .type {
+  background-color: #98d5d7;
+}
+.pokemon.ground .type {
+  background-color: #dfbf6e;
+}
+.pokemon.flying .type {
+  background-color: #a98ff0;
+}
+.pokemon.poison .type {
+  background-color: #a040a0;
+}
+.pokemon.fighting .type {
+  background-color: #bf3028;
+}
+.pokemon.psychic .type {
+  background-color: #f85888;
+}
+.pokemon.dark .type {
+  background-color: #705848;
+}
+.pokemon.rock .type {
+  background-color: #b8a038;
+}
+.pokemon.bug .type {
+  background-color: #a8b820;
+}
+.pokemon.ghost .type {
+  background-color: #70559b;
+}
+.pokemon.steel .type {
+  background-color: #b8b8d0;
+}
+.pokemon.dragon .type {
+  background-color: #7038f8;
+}
+.pokemon.fairy .type {
+  background-color: #f0b6bc;
 }
